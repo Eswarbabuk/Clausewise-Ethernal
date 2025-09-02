@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClauseWise – AI Legal Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Animated background -->
+  <div id="particles-js"></div>
+
+  <header>
+    <h1>ClauseWise</h1>
+    <p>Your AI-powered assistant to analyze contracts clause by clause</p>
+  </header>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h3>📂 Upload PDF</h3>
+      <input type="file" id="fileInput" accept=".pdf">
+
+      <h3>⚙️ Settings</h3>
+      <label><input type="checkbox" id="simplifyCheck" checked> Simplify Clauses</label><br>
+      <label><input type="checkbox" id="riskCheck" checked> Highlight Risks</label><br>
+      <label><input type="checkbox" id="compareCheck"> Enable Comparison Mode</label>
+
+      <button id="analyzeBtn" class="btn">Analyze</button>
+      <div id="loadingSpinner" class="spinner hidden"></div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <nav class="tabs">
+        <div class="tab active" data-tab="preview">Preview</div>
+        <div class="tab" data-tab="overview">Overview</div>
+        <div class="tab" data-tab="clauses">Clauses</div>
+        <div class="tab" data-tab="entities">Entities</div>
+        <div class="tab" data-tab="compare">Comparison</div>
+        <div class="tab" data-tab="raw">Raw JSON</div>
+      </nav>
+
+      <!-- Tabs Content -->
+      <section id="preview" class="content active">
+        <h3>PDF Text Preview</h3>
+        <pre id="previewBox">No PDF uploaded.</pre>
+      </section>
+
+      <section id="overview" class="content">
+        <h3>Document Overview</h3>
+        <p><strong>Type:</strong> <span id="docType">—</span></p>
+        <p><strong>Summary:</strong> <span id="summary">—</span></p>
+        <p><strong>Risks:</strong> <span id="risks">—</span></p>
+      </section>
+
+      <section id="clauses" class="content">
+        <h3>Clauses</h3>
+        <div id="clausesBox"></div>
+      </section>
+
+      <section id="entities" class="content">
+        <h3>Entities</h3>
+        <div id="entitiesBox"></div>
+      </section>
+
+      <section id="compare" class="content">
+        <h3>Comparison Mode</h3>
+        <div id="compareBox"></div>
+      </section>
+
+      <section id="raw" class="content">
+        <h3>Raw JSON</h3>
+        <pre id="rawJson">{}</pre>
+      </section>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <!-- ✅ Load particles.js from CDN -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
